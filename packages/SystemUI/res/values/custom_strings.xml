@@ -25,7 +25,8 @@
     <string name="statusbar_items_title">Statusbar icons</string>
 
    <!-- Name of the VPN status bar icon. -->
-    <string name="status_bar_vpn">VPN</string> 
+    <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_call_strength">Call strength</string>
 
    <!-- Caffeine QS Tile -->
     <string name="quick_settings_caffeine_label">Caffeine</string>
