@@ -4674,9 +4674,6 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.LOCKSCREEN_MEDIA_BLUR),
                     false, this, UserHandle.USER_ALL);
-                    Settings.System.HEADS_UP_STOPLIST_VALUES), false, this);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.HEADS_UP_BLACKLIST_VALUES), false, this);
         }
 
         @Override
@@ -4694,15 +4691,12 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.LOCKSCREEN_MEDIA_BLUR))) {
                 setLockScreenMediaBlurLevel();
             }
-            update();
         }
 
         public void update() {
             setDoubleTapToSleepGesture();
 	    setLockScreenMediaArt();
             setLockScreenMediaBlurLevel();
-            setHeadsUpStoplist();
-            setHeadsUpBlacklist();
         }
     }
 
@@ -4724,17 +4718,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         }
     }
 
-    private void setHeadsUpStoplist() {
-        if (mPresenter != null)
-            mPresenter.setHeadsUpStoplist();
-    }
-
-    private void setHeadsUpBlacklist() {
-        if (mPresenter != null)
-            mPresenter.setHeadsUpBlacklist();
-    }
-
-   private final BroadcastReceiver mBannerActionBroadcastReceiver = new BroadcastReceiver() {
+  private final BroadcastReceiver mBannerActionBroadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
